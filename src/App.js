@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import RegistrationForm from './components/RegistraionForm';
+import LoginForm from './components/LoginForm';
+import AppointmentBookingForm from './components/AppointmentBookingForm';
+import AppointmentList from './components/AppointmentList';
+import AppointmentManagement from './components/AppointmentManagement';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/register" component={RegistrationForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/book-appointment" component={AppointmentBookingForm} />
+          <Route path="/appointments" component={AppointmentList} />
+          <Route path="/admin/appointments" component={AppointmentManagement} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
